@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  docker-host:
+    image: qoomon/docker-host
+    cap_add: ["NET_ADMIN", "NET_RAW"]
+    restart: on-failure
+    environment:
+      - PORTS=8080
+
+  ssh:
+    image: rastasheep/ubuntu-sshd
+    ports:
+      - "2222:22"
